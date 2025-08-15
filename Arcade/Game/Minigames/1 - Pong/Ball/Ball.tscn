@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk6hg8enpdn3i"]
+
+[ext_resource type="Script" uid="uid://5suw8coqndye" path="res://Minigames/1 - Pong/Ball/Ball.cs" id="1_2ymfc"]
+[ext_resource type="Texture2D" uid="uid://dg7iwv5qu81ri" path="res://Minigames/1 - Pong/Ball/Ball.png" id="2_2ymfc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hbum"]
+size = Vector2(8, 8)
+
+[node name="Ball" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_2ymfc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2hbum")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2ymfc")
+region_rect = Rect2(16, 0, 16, 16)
