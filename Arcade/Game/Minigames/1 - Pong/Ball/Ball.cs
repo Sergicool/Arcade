@@ -21,7 +21,6 @@ public partial class Ball : CharacterBody2D
             x = rng.RandfRange(-1, 1);
             y = rng.RandfRange(-1, 1);
             Direction = new Vector2(x, y);
-            GD.Print(Direction);
             if (x <= -0.5 || x >= 0.5) validNumber = true;
         }
     }
