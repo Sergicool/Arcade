@@ -123,9 +123,13 @@ public partial class PongMainScene : Node
 
         _player1.CanMove = true;
         if (Singleplayer)
+        {
             _pongBot.CanMove = true;
-        else
+            _pongBot.SetBall(_ball);
+        }
+        else {
             _player2.CanMove = true;
+        }
     }
 
     public void _on_goal_time_timeout()
