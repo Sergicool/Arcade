@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://dop7wgufsltxq"]
+
+[ext_resource type="Script" uid="uid://8utcbyuc6vvd" path="res://UI/MainMenu.cs" id="1_ckt5n"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_ckt5n")
+
+[node name="PongPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PongLabel" type="Label" parent="PongPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 10.0
+offset_right = 100.0
+offset_bottom = 33.0
+grow_horizontal = 2
+text = "Pong"
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="PongPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -36.0
+offset_right = 130.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="1PlayerButton" type="Button" parent="PongPanel/Buttons"]
+layout_mode = 2
+text = "1 Player"
+
+[node name="2PlayerButton" type="Button" parent="PongPanel/Buttons"]
+layout_mode = 2
+text = "2 Players"
+
+[connection signal="pressed" from="PongPanel/Buttons/1PlayerButton" to="." method="_on_1_player_button_pressed"]
+[connection signal="pressed" from="PongPanel/Buttons/2PlayerButton" to="." method="_on_2_player_button_pressed"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://coxoryjiq0fmc"]
+
+[ext_resource type="Script" uid="uid://c21wphloi8fvg" path="res://Minigames/Pong/Entities/PongBot/PongBot.cs" id="1_ygxw2"]
+[ext_resource type="Texture2D" uid="uid://dho8blelqij1s" path="res://Minigames/Pong/Entities/PongBot/PongBot.png" id="2_cw4rx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5vjg"]
+size = Vector2(5, 30)
+
+[node name="PongBot" type="CharacterBody2D"]
+collision_mask = 4
+script = ExtResource("1_ygxw2")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x5vjg")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0.5, 0)
+texture = ExtResource("2_cw4rx")
