@@ -9,12 +9,14 @@ public partial class PongMainScene : Node
     public bool Singleplayer;
 
     private PackedScene _playerScene = GD.Load<PackedScene>("res://Minigames/Pong/Entities/Player/Player.tscn");
-    private PackedScene _botScene = GD.Load<PackedScene>("res://Minigames/Pong/Entities/PongBot/PongBot.tscn");
+    private PackedScene _botScene = GD.Load<PackedScene>("res://Minigames/Pong/Entities/Bot/PongBot.tscn");
     private PackedScene _ballScene = GD.Load<PackedScene>("res://Minigames/Pong/Entities/Ball/Ball.tscn");
     
     private Texture2D _player1TexturePath = GD.Load<Texture2D>("res://Minigames/Pong/Entities/Player/Player_1.png");
     private Texture2D _player2TexturePath = GD.Load<Texture2D>("res://Minigames/Pong/Entities/Player/Player_2.png");
-    private Texture2D _pongBotTexturePath = GD.Load<Texture2D>("res://Minigames/Pong/Entities/PongBot/PongBot.png");
+    private Texture2D _pongBotTexturePath = GD.Load<Texture2D>("res://Minigames/Pong/Entities/Bot/PongBot.png");
+
+    private AudioStreamPlayer _scorePointSFX;
 
     private Player _player1, _player2;
     private PongBot _pongBot;
@@ -60,6 +62,8 @@ public partial class PongMainScene : Node
         _goalTime = GetNode<Timer>("./Timers/GoalTime");
         _pongUi = GetNode<PongUI>("./PongUi");
 
+        _scorePointSFX = GetNode<AudioStreamPlayer>("ScorePointSfx");
+
         _scorePlayer1 = 0;
         _scorePlayer2 = 0;
         _pongUi.UpdateScores(_scorePlayer1, _scorePlayer2);
@@ -78,6 +82,7 @@ public partial class PongMainScene : Node
 
     public void ManageGoal(int teamGoal)
     {
+        _scorePointSFX.Play();
         _player1.CanMove = false;
         if (Singleplayer)
             _pongBot.CanMove = false;

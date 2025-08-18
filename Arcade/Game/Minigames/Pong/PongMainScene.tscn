@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://ddp3c535k42bu"]
+[gd_scene load_steps=7 format=4 uid="uid://ddp3c535k42bu"]
 
 [ext_resource type="Script" uid="uid://bkipc5bw6q3ff" path="res://Minigames/Pong/PongMainScene.cs" id="1_12k01"]
 [ext_resource type="PackedScene" uid="uid://dnuq0j5353yb5" path="res://UI/PauseMenu.tscn" id="3_3o8ia"]
 [ext_resource type="TileSet" uid="uid://b7hbwikaw6ttm" path="res://Minigames/Pong/Enviroment/PongTileSet.tres" id="4_j4ip2"]
+[ext_resource type="AudioStream" uid="uid://b4sm2sy55iv6p" path="res://Minigames/Pong/scorePointSFX.wav" id="6_baoot"]
 [ext_resource type="PackedScene" uid="uid://ctjwot24t5vv4" path="res://Minigames/Pong/UI/PongUI.tscn" id="6_m46ov"]
 [ext_resource type="PackedScene" uid="uid://iqdgiq1mv82n" path="res://Minigames/Pong/Goal/goal.tscn" id="7_osbhu"]
 
@@ -45,6 +46,9 @@ one_shot = true
 [node name="StartTime" type="Timer" parent="Timers"]
 wait_time = 3.0
 one_shot = true
+
+[node name="ScorePointSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_baoot")
 
 [connection signal="timeout" from="Timers/GoalTime" to="." method="_on_goal_time_timeout"]
 [connection signal="timeout" from="Timers/StartTime" to="." method="_on_start_time_timeout"]

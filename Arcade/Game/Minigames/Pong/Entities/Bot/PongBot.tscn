@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://coxoryjiq0fmc"]
 
-[ext_resource type="Script" uid="uid://c21wphloi8fvg" path="res://Minigames/Pong/Entities/PongBot/PongBot.cs" id="1_ygxw2"]
-[ext_resource type="Texture2D" uid="uid://dho8blelqij1s" path="res://Minigames/Pong/Entities/PongBot/PongBot.png" id="2_cw4rx"]
+[ext_resource type="Script" uid="uid://c21wphloi8fvg" path="res://Minigames/Pong/Entities/Bot/PongBot.cs" id="1_ygxw2"]
+[ext_resource type="Texture2D" uid="uid://dho8blelqij1s" path="res://Minigames/Pong/Entities/Bot/PongBot.png" id="2_cw4rx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5vjg"]
 size = Vector2(5, 30)
