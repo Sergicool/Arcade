@@ -53,7 +53,6 @@ public partial class Ball : CharacterBody2D
             }
             else
             {
-                GD.Print(collider.GetType().Name);
                 _hitWallSFX.Play();
                 _direction = _direction.Bounce(newDirection);
             }
