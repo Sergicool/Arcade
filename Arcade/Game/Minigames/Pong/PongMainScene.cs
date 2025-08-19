@@ -12,15 +12,15 @@ public partial class PongMainScene : Node
     private PackedScene _botScene = GD.Load<PackedScene>("res://Minigames/Pong/Entities/Bot/PongBot.tscn");
     private PackedScene _ballScene = GD.Load<PackedScene>("res://Minigames/Pong/Entities/Ball/Ball.tscn");
     
-    private Texture2D _player1TexturePath = GD.Load<Texture2D>("res://Minigames/Pong/Entities/Player/Player_1.png");
-    private Texture2D _player2TexturePath = GD.Load<Texture2D>("res://Minigames/Pong/Entities/Player/Player_2.png");
-    private Texture2D _pongBotTexturePath = GD.Load<Texture2D>("res://Minigames/Pong/Entities/Bot/PongBot.png");
+    private Texture2D _player1Texture = GD.Load<Texture2D>("res://Minigames/Pong/Entities/Player/Player_1.png");
+    private Texture2D _player2Texture = GD.Load<Texture2D>("res://Minigames/Pong/Entities/Player/Player_2.png");
+    private Texture2D _pongBotTexture = GD.Load<Texture2D>("res://Minigames/Pong/Entities/Bot/PongBot.png");
 
     private AudioStreamPlayer _scorePointSFX;
 
     private PongPlayer _player1, _player2;
     private PongBot _pongBot;
-    private Ball _ball;
+    private PongBall _ball;
 
     [Export] private Vector2 _player1StartPosition = new Vector2(-160, 0);
     [Export] private Vector2 _player2StartPosition = new Vector2(160, 0);
@@ -38,18 +38,18 @@ public partial class PongMainScene : Node
 
         _player1 = _playerScene.Instantiate<PongPlayer>();
         _player1.PlayerNumber = 1;
-        _player1.SpriteTexture = _player1TexturePath;
+        _player1.SpriteTexture = _player1Texture;
         if (Singleplayer)
         {
             _pongBot = _botScene.Instantiate<PongBot>();
             _pongBot.PlayerNumber = 2;
-            _pongBot.SpriteTexture = _pongBotTexturePath;
+            _pongBot.SpriteTexture = _pongBotTexture;
         }
         else
         {
             _player2 = _playerScene.Instantiate<PongPlayer>(); 
             _player2.PlayerNumber = 2;
-            _player2.SpriteTexture = _player2TexturePath;
+            _player2.SpriteTexture = _player2Texture;
         }
         
         GetNode("./Entities").CallDeferred("add_child", _player1);
@@ -121,7 +121,7 @@ public partial class PongMainScene : Node
     {
         _pongUi.HideMessage();
 
-        _ball = (Ball)_ballScene.Instantiate();
+        _ball = (PongBall)_ballScene.Instantiate();
         _ball.GlobalPosition = Vector2.Zero;
         _ball.ZIndex = 1;
         GetNode("./Entities").AddChild(_ball);
@@ -146,10 +146,5 @@ public partial class PongMainScene : Node
     public void EndGame(int winner)
     {
         _pongUi.ShowMessage("Player " + winner + " win!");
-    }
-
-    public void RestartGame()
-    {
-        GetTree().ReloadCurrentScene();
     }
 }

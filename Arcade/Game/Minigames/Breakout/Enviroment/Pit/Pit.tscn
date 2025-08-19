@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4k40qsev42aw"]
+
+[ext_resource type="Script" uid="uid://cf0stqi06y8dh" path="res://Minigames/Breakout/Enviroment/Pit/BreakoutPit.cs" id="1_fxgf0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xl3xe"]
+size = Vector2(512, 20)
+
+[node name="Pit" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_fxgf0")
+
+[node name="Area" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xl3xe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

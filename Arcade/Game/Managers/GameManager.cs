@@ -8,6 +8,7 @@ public partial class GameManager : Node
     private PauseMenu _pauseMenuInstance;
     private string _mainMenuPath = "res://UI/MainMenu.tscn";
     private string _pauseMenuPath = "res://UI/PauseMenu.tscn";
+    public bool CanPause { get; set; } = true;
 
     public override void _Ready()
     {

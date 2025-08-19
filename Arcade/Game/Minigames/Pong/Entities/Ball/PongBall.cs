@@ -2,7 +2,7 @@ using Godot;
 using System;
 using static Godot.TextServer;
 
-public partial class Ball : CharacterBody2D
+public partial class PongBall : CharacterBody2D
 {
     [Export] public float speed = 100f;
     [Export] public float speedIncrement = 15f;

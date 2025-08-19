@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://curubuc5jeg7a"]
+
+[ext_resource type="Texture2D" uid="uid://bn652dvbv3mxm" path="res://Minigames/Breakout/Entities/Ball/Ball.png" id="1_h8abq"]
+[ext_resource type="Script" uid="uid://c1e00gkl0v28" path="res://Minigames/Breakout/Entities/Ball/BreakoutBall.cs" id="1_jcroy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcroy"]
+size = Vector2(8, 8)
+
+[node name="Ball" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_jcroy")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jcroy")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_h8abq")

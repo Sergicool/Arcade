@@ -3,6 +3,7 @@ using System;
 
 public partial class PauseMenu : CanvasLayer
 {
+
     public override void _Ready()
     {
         ProcessMode = Node.ProcessModeEnum.Always; // Funciona aun con el arbol de escenas pausadas
@@ -11,10 +12,14 @@ public partial class PauseMenu : CanvasLayer
 
     public void TogglePause()
     {
+        if (!GameManager.Instance.CanPause)
+            return;
+
         bool paused = !GetTree().Paused;
         GetTree().Paused = paused;
         Visible = paused;
     }
+
 
     public void _on_continue_button_pressed()
     {

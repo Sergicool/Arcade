@@ -5,13 +5,13 @@ public partial class BreakoutPlayer : CharacterBody2D
 {
     public Texture2D SpriteTexture;
 
-    [Export] public int speed = 140;
+    [Export] public int speed = 180;
     public float width = 30;
     public bool CanMove;
 
     public override void _Ready()
     {
-        CanMove = true;
+        CanMove = false;
         if (SpriteTexture != null)
             GetNode<Sprite2D>("./Sprite").Texture = SpriteTexture;
     }

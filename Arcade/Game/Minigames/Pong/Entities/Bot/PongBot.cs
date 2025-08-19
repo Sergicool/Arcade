@@ -6,13 +6,13 @@ public partial class PongBot : CharacterBody2D
 
     [Export] public int PlayerNumber = 1;
     public Texture2D SpriteTexture;
-    private Ball _ball;
+    private PongBall _ball;
 
     [Export] public int speed = 140;
     public float height = 30;
     public bool CanMove;
 
-    public void SetBall(Ball ball)
+    public void SetBall(PongBall ball)
     {
         _ball = ball;
     }
@@ -27,7 +27,7 @@ public partial class PongBot : CharacterBody2D
     public override void _PhysicsProcess(double delta)
     {
         if (!CanMove) return;
-        Ball ball = GetNode<Ball>("../Ball");
+        PongBall ball = GetNode<PongBall>("../Ball");
 
         Vector2 moveDirection = Vector2.Zero;
         if (_ball.GlobalPosition.Y < GlobalPosition.Y - height / 2)
