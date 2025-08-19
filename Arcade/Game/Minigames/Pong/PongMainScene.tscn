@@ -40,7 +40,7 @@ position = Vector2(180, 0)
 [node name="Timers" type="Node" parent="."]
 
 [node name="GoalTime" type="Timer" parent="Timers"]
-wait_time = 1.5
+wait_time = 2.5
 one_shot = true
 
 [node name="StartTime" type="Timer" parent="Timers"]

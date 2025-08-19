@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://tscf8gm2mt1p"]
+
+[ext_resource type="Script" uid="uid://bwre73ymxac81" path="res://Minigames/Breakout/Entities/Player/BreakoutPlayer.cs" id="1_tfx2d"]
+[ext_resource type="Texture2D" uid="uid://ctymimi3n2ky8" path="res://Minigames/Breakout/Entities/Player/Player.png" id="2_2mex4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfx2d"]
+size = Vector2(30, 5)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_tfx2d")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_tfx2d")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_2mex4")

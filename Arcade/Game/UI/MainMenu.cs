@@ -8,7 +8,7 @@ public partial class MainMenu : CanvasLayer
         PongMainScene game = GameManager.Instance.LoadGame("Pong") as PongMainScene;
         if (game != null)
         {
-            game.BestOf = 2;
+            game.BestOf = 3;
             game.Singleplayer = true;
         }
     }
@@ -22,4 +22,9 @@ public partial class MainMenu : CanvasLayer
             game.Singleplayer = false;
         }
     }
+    public void _on_play_brakeout_pressed()
+    {
+        BreakoutMainScene game = GameManager.Instance.LoadGame("BreakouT") as BreakoutMainScene;
+    }
+    
 }

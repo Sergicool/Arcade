@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Player : CharacterBody2D
+public partial class PongPlayer : CharacterBody2D
 {
 
     [Export] public int PlayerNumber;

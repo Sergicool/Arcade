@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg2kns7a6vary"]
+
+[ext_resource type="Texture2D" uid="uid://dkluwri8c37qx" path="res://Minigames/Breakout/Entities/Bricks/BrickBlue.png" id="1_7dpk5"]
+[ext_resource type="Script" uid="uid://dvrdnp07ydkdt" path="res://Minigames/Breakout/Entities/Bricks/BreakoutBrick.cs" id="1_k7c77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7c77"]
+size = Vector2(32, 10)
+
+[node name="Brick" type="CharacterBody2D"]
+script = ExtResource("1_k7c77")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k7c77")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_7dpk5")

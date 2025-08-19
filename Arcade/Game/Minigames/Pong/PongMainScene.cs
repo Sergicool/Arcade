@@ -18,7 +18,7 @@ public partial class PongMainScene : Node
 
     private AudioStreamPlayer _scorePointSFX;
 
-    private Player _player1, _player2;
+    private PongPlayer _player1, _player2;
     private PongBot _pongBot;
     private Ball _ball;
 
@@ -36,7 +36,7 @@ public partial class PongMainScene : Node
     {
         if (BestOf < 1) BestOf = 1;
 
-        _player1 = _playerScene.Instantiate<Player>();
+        _player1 = _playerScene.Instantiate<PongPlayer>();
         _player1.PlayerNumber = 1;
         _player1.SpriteTexture = _player1TexturePath;
         if (Singleplayer)
@@ -47,7 +47,7 @@ public partial class PongMainScene : Node
         }
         else
         {
-            _player2 = _playerScene.Instantiate<Player>(); 
+            _player2 = _playerScene.Instantiate<PongPlayer>(); 
             _player2.PlayerNumber = 2;
             _player2.SpriteTexture = _player2TexturePath;
         }

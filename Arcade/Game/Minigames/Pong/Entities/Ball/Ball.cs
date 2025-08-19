@@ -36,7 +36,7 @@ public partial class Ball : CharacterBody2D
             Vector2 newDirection = collision.GetNormal();
             GodotObject collider = collision.GetCollider();
 
-            if (collider is Player player || collider is PongBot bot)
+            if (collider is PongPlayer player || collider is PongBot bot)
             {
                 var body = (CharacterBody2D)collider;
                 _hitPlayerSFX.Play();

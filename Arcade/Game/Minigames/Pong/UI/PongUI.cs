@@ -3,7 +3,6 @@ using System;
 
 public partial class PongUI : CanvasLayer
 {
-    Panel PanelMessage;
     Label PlayerScore1, PlayerScore2, Message;
 
     public override void _Ready()
@@ -12,20 +11,18 @@ public partial class PongUI : CanvasLayer
         PlayerScore1.Visible = false;
         PlayerScore2 = GetNode<Label>("PlayerScore2");
         PlayerScore2.Visible = false;
-        PanelMessage = GetNode<Panel>("PanelMessage");
-        PanelMessage.Visible = false;
-        Message = GetNode<Label>("PanelMessage/Message");
+        Message = GetNode<Label>("Message");
     }
 
     public void ShowMessage(string newMessage, bool visible = true)
     {
         Message.Text = newMessage;
-        PanelMessage.Visible = visible;
+        Message.Visible = visible;
     }
 
     public void HideMessage()
     {
-        PanelMessage.Visible = false;
+        Message.Visible = false;
     }
 
     public void UpdateScores(int playerScore1, int playerScore2)
