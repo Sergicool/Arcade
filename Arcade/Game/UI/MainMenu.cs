@@ -3,6 +3,14 @@ using System;
 
 public partial class MainMenu : CanvasLayer
 {
+    private Label _breakout_highscore_label;
+    private int _breakout_highscore = SaveManager.LoadStat(SaveManager.breakoutHighScore);
+    public override void _Ready()
+    {
+        _breakout_highscore_label = GetNode<Label>("Breakout/VBox/Highscore");
+        _breakout_highscore_label.Text = "Best Score: " + _breakout_highscore;
+    }
+
     public void _on_1_player_button_pressed()
     {
         PongMainScene game = GameManager.Instance.LoadGame("Pong") as PongMainScene;

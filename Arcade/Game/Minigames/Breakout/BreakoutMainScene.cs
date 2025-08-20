@@ -70,6 +70,7 @@ public partial class BreakoutMainScene : Node
         _lives = 3;
 
         _breakoutUI.UpdateScore(_score);
+        _breakoutUI.UpdateLiveCounter(_lives);
 
         foreach (Node child in BricksGrid.GetChildren())
             child.QueueFree();
@@ -91,6 +92,7 @@ public partial class BreakoutMainScene : Node
         if (_lives > 0)
         {
             _lives -= 1;
+            _breakoutUI.UpdateLiveCounter(_lives);
             StartGame();
         }
         else
@@ -102,6 +104,15 @@ public partial class BreakoutMainScene : Node
     public void EndGame()
     {
         GameManager.Instance.CanPause = false;
+
+        int bestScore = SaveManager.LoadStat(SaveManager.breakoutHighScore);
+
+        if (_score > bestScore)
+        {
+            SaveManager.SaveStat(SaveManager.breakoutHighScore, _score);
+            bestScore = _score;
+        }
+
         _breakoutUI.ShowEndGameMessage(_score);
     }
 
