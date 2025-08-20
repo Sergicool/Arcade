@@ -30,8 +30,8 @@ public partial class PongMainScene : Node
     
     private Timer _startTime, _goalTime;
     private PongUI _pongUi;
-    
-    
+    private EndGameUI _endGameUI;
+
     public override void _Ready()
     {
         if (BestOf < 1) BestOf = 1;
@@ -61,6 +61,10 @@ public partial class PongMainScene : Node
         _startTime = GetNode<Timer>("./Timers/StartTime");
         _goalTime = GetNode<Timer>("./Timers/GoalTime");
         _pongUi = GetNode<PongUI>("./PongUi");
+        _endGameUI = GetNode<EndGameUI>("EndGameUI");
+
+        _endGameUI.OnPlayAgain = () => RestartGame();
+        _endGameUI.OnExit = () => GameManager.Instance.ReturnToMenu();
 
         _scorePointSFX = GetNode<AudioStreamPlayer>("ScorePointSfx");
 
@@ -117,6 +121,31 @@ public partial class PongMainScene : Node
             _player2.GlobalPosition = _player2StartPosition;
     }
 
+    public void RestartGame()
+    {
+        _scorePlayer1 = 0;
+        _scorePlayer2 = 0;
+        _pongUi.UpdateScores(_scorePlayer1, _scorePlayer2);
+        _pongUi.ShowScores(false);
+        _pongUi.HideMessage();
+
+        _player1.GlobalPosition = _player1StartPosition;
+        _player1.CanMove = false;
+        if (Singleplayer)
+        {
+            _pongBot.GlobalPosition = _player2StartPosition;
+            _pongBot.CanMove = false;
+        }
+        else
+        {
+            _player2.GlobalPosition = _player2StartPosition;
+            _player2.CanMove = false;
+        }
+
+        StartGame();
+    }
+
+
     public void _on_start_time_timeout()
     {
         _pongUi.HideMessage();
@@ -143,8 +172,10 @@ public partial class PongMainScene : Node
         StartGame();
     }
 
+
     public void EndGame(int winner)
     {
-        _pongUi.ShowMessage("Player " + winner + " win!");
+        string msg = "Player " + winner + " wins!";
+        _endGameUI.ShowEndGame(msg, score: null);
     }
 }

@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=4 uid="uid://ily6vb5l5r7d"]
+[gd_scene load_steps=6 format=4 uid="uid://ily6vb5l5r7d"]
 
 [ext_resource type="Script" uid="uid://dfdt3nkrh2tig" path="res://Minigames/Breakout/BreakoutMainScene.cs" id="1_hvs0a"]
 [ext_resource type="TileSet" uid="uid://st8q5aentm3p" path="res://Minigames/Breakout/Enviroment/BreakoutTileSet.tres" id="2_i42jy"]
 [ext_resource type="PackedScene" uid="uid://btcev3lwv7ak3" path="res://Minigames/Breakout/UI/BreakoutUI.tscn" id="2_rjw0t"]
+[ext_resource type="PackedScene" uid="uid://cwrrc0ulnub8i" path="res://UI/EndGameUI.tscn" id="3_t7dts"]
 [ext_resource type="PackedScene" uid="uid://b4k40qsev42aw" path="res://Minigames/Breakout/Enviroment/Pit/Pit.tscn" id="4_a73f1"]
 
 [node name="BreakoutMainScene" type="Node"]
 script = ExtResource("1_hvs0a")
 
 [node name="BreakoutUI" parent="." instance=ExtResource("2_rjw0t")]
+
+[node name="EndGameUI" parent="." instance=ExtResource("3_t7dts")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

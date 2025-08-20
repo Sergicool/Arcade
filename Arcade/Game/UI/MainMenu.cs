@@ -16,7 +16,7 @@ public partial class MainMenu : CanvasLayer
         PongMainScene game = GameManager.Instance.LoadGame("Pong") as PongMainScene;
         if (game != null)
         {
-            game.BestOf = 3;
+            game.BestOf = 1;
             game.Singleplayer = true;
         }
     }

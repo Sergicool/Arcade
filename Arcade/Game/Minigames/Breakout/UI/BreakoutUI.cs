@@ -7,7 +7,6 @@ public partial class BreakoutUI : CanvasLayer
     private Panel _endGamePanel;
     private Texture2D _live, _liveLost;
     private HBoxContainer _liveContainer;
-    private AudioStreamPlayer _endGameSFX;
 
     BreakoutMainScene _breakoutMainScene;
 
@@ -22,7 +21,6 @@ public partial class BreakoutUI : CanvasLayer
         _endGameScore = GetNode<Label>("EndGamePanel/EndGameScore"); 
         _endGamePanel = GetNode<Panel>("EndGamePanel");
         _endGamePanel.Visible = false;
-        _endGameSFX = GetNode<AudioStreamPlayer>("EndGame");
     }
 
     public void UpdateLiveCounter(int remainingLives)
@@ -50,25 +48,5 @@ public partial class BreakoutUI : CanvasLayer
     public void UpdateScore(int value)
     {
         _scoreCount.Text = "SCORE:" + value;
-    }
-
-    public void ShowEndGameMessage(int score)
-    {
-        _endGameSFX.Play();
-        _endGameScore.Text = "SCORE " + score;
-        _endGamePanel.Visible = true;
-    }
-
-    public void _on_play_again_pressed()
-    {
-        GameManager.Instance.CanPause = true;
-        _endGamePanel.Visible = false;
-        _breakoutMainScene.RestartGame();
-    }
-
-    public void _on_exit_pressed()
-    {
-        GameManager.Instance.CanPause = true;
-        GameManager.Instance.ReturnToMenu();
     }
 }

@@ -38,6 +38,7 @@ public partial class BreakoutMainScene : Node
 
     private Timer _startTime;
     private BreakoutUI _breakoutUI;
+    private EndGameUI _endGameUI;
 
     public override void _Ready()
     {
@@ -51,6 +52,11 @@ public partial class BreakoutMainScene : Node
 
         _breakoutUI = GetNode<BreakoutUI>("./BreakoutUI");
         _breakoutUI.UpdateScore(0);
+
+        _endGameUI = GetNode<EndGameUI>("EndGameUI");
+
+        _endGameUI.OnPlayAgain = () => RestartGame();
+        _endGameUI.OnExit = () => GameManager.Instance.ReturnToMenu();
 
         StartGame();
     }
@@ -103,17 +109,12 @@ public partial class BreakoutMainScene : Node
 
     public void EndGame()
     {
-        GameManager.Instance.CanPause = false;
-
         int bestScore = SaveManager.LoadStat(SaveManager.breakoutHighScore);
 
         if (_score > bestScore)
-        {
             SaveManager.SaveStat(SaveManager.breakoutHighScore, _score);
-            bestScore = _score;
-        }
 
-        _breakoutUI.ShowEndGameMessage(_score);
+        _endGameUI.ShowEndGame("Game Over", score: _score);
     }
 
     public void AddScore(int value)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://ddp3c535k42bu"]
 
 [ext_resource type="Script" uid="uid://bkipc5bw6q3ff" path="res://Minigames/Pong/PongMainScene.cs" id="1_12k01"]
-[ext_resource type="PackedScene" uid="uid://dnuq0j5353yb5" path="res://UI/PauseMenu.tscn" id="3_3o8ia"]
+[ext_resource type="PackedScene" uid="uid://cwrrc0ulnub8i" path="res://UI/EndGameUI.tscn" id="3_baoot"]
 [ext_resource type="TileSet" uid="uid://b7hbwikaw6ttm" path="res://Minigames/Pong/Enviroment/PongTileSet.tres" id="4_j4ip2"]
 [ext_resource type="AudioStream" uid="uid://b4sm2sy55iv6p" path="res://Minigames/Pong/scorePointSFX.wav" id="6_baoot"]
 [ext_resource type="PackedScene" uid="uid://ctjwot24t5vv4" path="res://Minigames/Pong/UI/PongUI.tscn" id="6_m46ov"]
@@ -10,9 +10,9 @@
 [node name="PongGame" type="Node"]
 script = ExtResource("1_12k01")
 
-[node name="PauseMenu" parent="." instance=ExtResource("3_3o8ia")]
-
 [node name="PongUi" parent="." instance=ExtResource("6_m46ov")]
+
+[node name="EndGameUI" parent="." instance=ExtResource("3_baoot")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.7, 2.7)

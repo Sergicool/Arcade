@@ -6,7 +6,7 @@ public partial class PauseMenu : CanvasLayer
 
     public override void _Ready()
     {
-        ProcessMode = Node.ProcessModeEnum.Always; // Funciona aun con el arbol de escenas pausadas
+        ProcessMode = Node.ProcessModeEnum.Always; // Works while the SceneTree is paused
         Visible = false;
     }
 

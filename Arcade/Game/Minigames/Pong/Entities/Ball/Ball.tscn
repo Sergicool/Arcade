@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dk6hg8enpdn3i"]
 
-[ext_resource type="Script" uid="uid://5suw8coqndye" path="res://Minigames/Pong/Entities/Ball/Ball.cs" id="1_2ymfc"]
+[ext_resource type="Script" uid="uid://dnwhkonkogedp" path="res://Minigames/Pong/Entities/Ball/PongBall.cs" id="1_2ymfc"]
 [ext_resource type="Texture2D" uid="uid://dg7iwv5qu81ri" path="res://Minigames/Pong/Entities/Ball/Ball.png" id="2_2ymfc"]
 [ext_resource type="AudioStream" uid="uid://bhq7tld6smrth" path="res://Minigames/Pong/Entities/Ball/BallHitPlayer.wav" id="3_ao7r4"]
 [ext_resource type="AudioStream" uid="uid://cilbsubxo5uqk" path="res://Minigames/Pong/Entities/Ball/BallHitWall.wav" id="4_3prnq"]
